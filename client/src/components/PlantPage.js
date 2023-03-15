@@ -33,8 +33,11 @@ function PlantPage() {
   }
 
   const displayedPlants = plants.filter((plant) => {
-    return plant.name.toLowerCase().includes(searchTerm.toLowerCase());
-  });
+  const name = plant.name || ''; // add a null check for plant.name
+  return name.toLowerCase().includes(searchTerm?.toLowerCase() || '');
+});
+
+  
 
   return (
     <main>
